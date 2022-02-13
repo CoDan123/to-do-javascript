@@ -7,7 +7,7 @@
 body {
     background-image: radial-gradient(circle at 83% 70%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 72% 5%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 26% 91%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 19% 59%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 18% 99%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 74% 21%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 54% 49%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 14% 83%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 37% 84%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 42% 27%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 67% 82%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),linear-gradient(135deg, rgb(207, 223, 223),rgb(3, 35, 171));
     color: white;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,8 +15,28 @@ body {
     justify-content: center;
 }
 
+.app-container {
+    animation: fadeIn 750ms;
+    background-color: #ffffff;
+    width: 700px;
+    height: 700px;
+    -webkit-box-shadow: 7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 25px;
+    overflow: hidden;
+}
+
 header {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: rgb(12, 72, 141);
+}
+
+.fa-solid {
     font-size: 1.5rem;
+    margin-right: 10px;
 }
 
 form {
@@ -30,14 +50,40 @@ header, form {
     align-items: center;
 }
 
+.bar-and-btn {
+    display: flex;
+    justify-content: center;
+}
+
 form input, form button {
     padding: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border: none;
     background: white;
     border: 2px solid #d6d6d6;
     border-radius: 15px;
 }
+
+.todo-input {
+    width: 75%;
+}
+
+input::-webkit-input-placeholder { 
+    font-size: 1.5rem;
+    color: #9c9c9c;
+  }
+  input::-moz-placeholder { 
+    font-size: 1.5rem;
+    color: #9c9c9c;
+  }
+  input:-ms-input-placeholder { 
+    font-size: 1.5rem;
+    color: #9c9c9c;
+  }
+  input:-moz-placeholder { 
+    font-size: 1.5rem;
+    color: #9c9c9c;
+  }
 
 form button {
     background: white;
@@ -51,23 +97,12 @@ form button:hover {
     color: white;
 }
 
-.app-container {
-    animation: fadeIn 750ms;
-    background-color: #ffffff;
-    width: 700px;
-    height: 700px;
-    -webkit-box-shadow: 7px 7px 16px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    7px 7px 16px 0px rgba(50, 50, 50, 0.75);
-    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
-    border-radius: 5%;
-}
-
 .todo-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     margin-top: 5%;
-    height: 450px;
+    height: 57%;
     overflow: auto;
 }
 
@@ -94,7 +129,7 @@ form button:hover {
   }
 
 .todo-list {
-    width: 75%;
+    width: 100%;
     list-style: none;
 }
 
@@ -110,6 +145,8 @@ form button:hover {
     border: 1px solid #d6d6d6;
     border-radius: 25px 0 0 25px;
     overflow: hidden;
+    font-weight: 700;
+    height: 52px;
 }
 
 .todo li {
@@ -192,4 +229,22 @@ select {
     to {
         opacity: 1;
     }
+}
+
+@media only screen and (max-width:800px) {
+    .app-container {
+        width: 90%;
+        height: 90vh;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .todo {
+        font-size: 16px;
+    }
+
+
 }
