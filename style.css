@@ -5,18 +5,26 @@
 }
 
 body {
-    background-image: linear-gradient(120deg, #f6d365, #fda085);
+    background-image: radial-gradient(circle at 83% 70%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 72% 5%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 26% 91%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 19% 59%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 18% 99%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 74% 21%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 54% 49%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 14% 83%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 37% 84%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 42% 27%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 67% 82%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),linear-gradient(135deg, rgb(207, 223, 223),rgb(3, 35, 171));
     color: white;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 header {
     font-size: 1.5rem;
 }
 
+form {
+    border-bottom: 1px solid #d6d6d6;
+    height: 150px;
+}
+
 header, form {
-    min-height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,28 +35,66 @@ form input, form button {
     font-size: 2rem;
     border: none;
     background: white;
+    border: 2px solid #d6d6d6;
+    border-radius: 15px;
 }
 
 form button {
-    color: #fda085;
     background: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    border: none;
 }
 
 form button:hover {
-    background: #fda085;
+    background: rgb(39, 140, 255);
     color: white;
+}
+
+.app-container {
+    animation: fadeIn 750ms;
+    background-color: #ffffff;
+    width: 700px;
+    height: 700px;
+    -webkit-box-shadow: 7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 5%;
 }
 
 .todo-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin-top: 5%;
+    height: 450px;
+    overflow: auto;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(39, 140, 255); 
+  }
+
 .todo-list {
-    min-width: 30%;
+    width: 75%;
     list-style: none;
 }
 
@@ -61,6 +107,9 @@ form button:hover {
     justify-content: space-between;
     align-items: center;
     transition: all 0.5s ease;
+    border: 1px solid #d6d6d6;
+    border-radius: 25px 0 0 25px;
+    overflow: hidden;
 }
 
 .todo li {
@@ -68,7 +117,7 @@ form button:hover {
 }
 
 .trash-btn, .complete-btn {
-    background: #ff6f47;
+    background: rgb(255, 73, 73);
     color: white;
     border: none;
     padding: 1rem;
@@ -77,11 +126,12 @@ form button:hover {
 }
 
 .complete-btn {
-    background: green;
+    background: rgb(17, 131, 17);
 }
 
 .todo-item {
     padding: 0rem 0.5rem;
+    overflow: auto;
 }
 
 .fa-trash, .fa-check {
@@ -110,10 +160,11 @@ select {
     margin: 1rem;
     position: relative;
     overflow: hidden;
+    border: 2px solid #d6d6d6;
 }
 
 select {
-    color: #ff6f47;
+    color: black;
     width: 10rem;
     cursor: pointer;
     padding: 1rem;
@@ -122,7 +173,7 @@ select {
 .select::after {
     content: "\25BC";
     position: absolute;
-    background: #ff6f47;
+    background: rgb(39, 140, 255);
     top: 0;
     right: 0;
     padding: 1rem;
@@ -131,6 +182,14 @@ select {
 }
 
 .select:hover::after {
-    background: white;
-    color: #ff6f47;
+    background: rgb(87, 165, 255);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
