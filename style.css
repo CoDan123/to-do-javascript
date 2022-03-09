@@ -147,6 +147,7 @@ form button:hover {
     overflow: hidden;
     font-weight: 700;
     height: 52px;
+    animation: fadeIn 750ms;
 }
 
 .todo li {
